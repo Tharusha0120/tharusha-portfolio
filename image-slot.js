@@ -222,7 +222,7 @@
     '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>' +
     '<path d="m21 15-5-5L5 21"/></svg>';
 
-  class ImageSlot extends HTMLElement {
+  class imageslot extends HTMLElement {
     static get observedAttributes() {
       return ['shape', 'radius', 'mask', 'fit', 'position', 'placeholder', 'src', 'id'];
     }
@@ -379,8 +379,8 @@
     connectedCallback() {
       // Warn once per page — an id-less slot works for the session but
       // cannot persist, and two id-less slots would share nothing.
-      if (!this.id && !ImageSlot._warned) {
-        ImageSlot._warned = true;
+      if (!this.id && !imageslot._warned) {
+        imageslot._warned = true;
         console.warn('<image-slot> without an id will not persist its dropped image.');
       }
       this.addEventListener('dragenter', this);
@@ -636,6 +636,6 @@
   }
 
   if (!customElements.get('image-slot')) {
-    customElements.define('image-slot', ImageSlot);
+    customElements.define('image-slot', imageslot);
   }
 })();
